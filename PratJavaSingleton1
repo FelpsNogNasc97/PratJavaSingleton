@@ -1,0 +1,38 @@
+// Classe Singleton
+public class Singleton {
+
+    // Atributo privado e estático que armazena a única instância
+    private static Singleton instance;
+
+    // Construtor privado
+    private Singleton() {
+        System.out.println("Singleton criado");
+    }
+
+    // Método público e estático que retorna a instância
+    public static Singleton getInstance() {
+        // Se a instância ainda não foi criada, cria uma nova
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        // Retorna a instância existente ou recém-criada
+        return instance;
+    }
+}
+
+// Classe principal para testar o padrão Singleton
+public class Main {
+
+    public static void main(String[] args) {
+        // Tenta obter duas instâncias do Singleton
+        Singleton s1 = Singleton.getInstance();
+        Singleton s2 = Singleton.getInstance();
+
+        // Verifica se as instâncias são iguais
+        if (s1 == s2) {
+            System.out.println("As instâncias são iguais");
+        } else {
+            System.out.println("As instâncias são diferentes");
+        }
+    }
+}
